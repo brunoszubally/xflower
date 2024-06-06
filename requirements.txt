@@ -1,0 +1,6 @@
+openai
+plotly
+bcrypt
+streamlit
+streamlit_authenticator
+python-dotenv
