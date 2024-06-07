@@ -177,7 +177,7 @@ if __name__ == "__main__":
         st.warning("Írja be a felhasználónevét és jelszavát!")
 
     if authentication_status:
-        st.sidebar.title(f"Üdv az xFLOWer AI Tudásbázisában!")
+        st.sidebar.title(f"Üdvözlünk az xFLOWer AI Tudásbázisában!")
         authenticator.logout("Kilépés", "sidebar")
         initialize_chat_variables()
         start_new_chat_session(client)  # Ensure a new chat session starts
