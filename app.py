@@ -33,18 +33,35 @@ def setup_streamlit_ui():
     """Configures Streamlit's page and displays initial UI components."""
     st.set_page_config(page_title=Config.PAGE_TITLE, page_icon=":speech_balloon:")
     apply_custom_css()
-    display_markdown_content(Config.DISCLAIMER)
     if os.path.isfile(Config.LOGO):
-        st.image(Config.LOGO, width=500, output_format='PNG')
-    st.title(Config.PAGE_TITLE)
-    st.write(Config.WELCOME_MESSAGE)
+        st.sidebar.image(Config.LOGO, use_column_width=True)  # Use full width for better resolution
+    st.markdown("<h1 style='font-size:30px; font-weight:500;'>Miben segíthetek ma?</h1>", unsafe_allow_html=True)
 
 def apply_custom_css():
     """Applies custom CSS to hide default Streamlit elements and adjust the layout."""
     custom_css = """
         <style>
+            @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+            * {
+                font-family: 'Montserrat', sans-serif;
+            }
+
             .reportview-container {margin-top: -2em;}
-            #MainMenu, .stDeployButton, footer, #stDecoration {visibility: hidden;}
+            #MainMenu, header {visibility: hidden;}
+            footer {visibility: hidden;}
+
+            /* Custom style for header */
+            h1 {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 500;
+                font-size: 30px;
+            }
+
+            /* Style for input prompts */
+            input, textarea, select, button {
+                font-family: 'Montserrat', sans-serif;
+            }
         </style>
     """
     st.markdown(custom_css, unsafe_allow_html=True)
